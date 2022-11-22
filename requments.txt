@@ -1,13 +1,9 @@
 beautifulsoup4>=4.10.0
 requests>=2.26.0
-schedule>=1.1.0
-django-celery>=3.3.1
-django>=3.3.0
-
-
 Celery
 Django
 django-celery-beat 
-django-celery-results # currently requires Django 4.0 or older
+django-celery-results
 python-decouple
 redis
+python-telegram-bot

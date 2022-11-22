@@ -17,4 +17,9 @@ def telegram_post():
 AQI: <b>{}</b>
     """.format(get_aqiwgtvalue())
     __photo = open(str(BASE_DIR) + '/info.png' ,'rb')
-    send_message = asyncio.run(UZBEKDEVS_BOT.sendPhoto(chat_id=488140160, caption=__text, photo=__photo,  parse_mode="HTML", disable_notification=False))
+    while True:
+        try:
+            send_message = asyncio.run(UZBEKDEVS_BOT.sendPhoto(chat_id=488140160, caption=__text, photo=__photo,  parse_mode="HTML", disable_notification=False))
+            break
+        except:
+            continue

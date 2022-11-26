@@ -8,16 +8,16 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 8000:8000
-    stdin_open: true
     depends_on:
       - redis
     links:
       - redis
   redis:
-    image: 'redis:alpine'
+    image: "redis:alpine"
+    command: redis-server
+    container_name: redis
     ports:
-      - 6379:6379
-    hostname: redis
+      - "6379:6379"
   celery:
     build: .
     command: celery -A amudario worker -l info

@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b6*-^lyy(b43#*n928by!0j$6_nk9yl70l2^z86)f=mcr0l=6!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-CELERY_BROKER_REDIS_URL="redis://localhost:6379"
+CELERY_BROKER_REDIS_URL="redis://redis:6379"
 
 
 DEBUG = True
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
 CELERY_RESULT_BACKEND = "django-db"
 
-CELERY_BROKER_URL = config('CELERY_BROKER_REDIS_URL', default='redis://localhost:6379')
+CELERY_BROKER_URL = config('CELERY_BROKER_REDIS_URL', default='redis://redis:6379')
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
 
 

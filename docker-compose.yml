@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  amudario:
+    image: amudario
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
+    stdin_open: true
+    depends_on:
+      - redis
+    links:
+      - redis
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - 6379:6379
+    hostname: redis
+  celery:
+    build: .
+    command: celery -A amudario worker -l info
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - redis
+  celery-beat:
+    build: .
+    command: celery -A amudario worker -l info
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - redis
+
+    

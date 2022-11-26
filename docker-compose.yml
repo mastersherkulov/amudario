@@ -27,7 +27,7 @@ services:
       - redis
   celery-beat:
     build: .
-    command: celery -A amudario worker -l info
+    command: celery -A amudario worker --beat
     volumes:
       - ./:/usr/src/app/
     depends_on:

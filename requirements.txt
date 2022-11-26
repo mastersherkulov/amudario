@@ -5,3 +5,4 @@ django-celery-beat
 django-celery-results
 python-decouple
 python-telegram-bot
+Redis
